@@ -19,7 +19,7 @@ class HelloController extends Controller
   // }
 
   public function index(Request $request) {
-    // $data = ['msg' => ''];
+    $data = ['msg' => 'フォームを入力'];
 
     // $data = [
     //   ['name' => 'name1', 'mail' => 'mail1'],
@@ -28,12 +28,18 @@ class HelloController extends Controller
     // ];
 
     // $data = array('aa' => "hoge", 'bb' => "hoge2", 'cc' => "hoge3");
-    return view('hellos.index', ['data' => $request->data]);
+    return view('hellos.index', $data);
   }
 
   public function post(Request $request) {
-    $data = ['msg' =>  $request-> msg];
-    return view('hellos.index', $data);
+
+    $validate_rule = [
+      'name' => 'required',
+      'mail' => 'email',
+      'age' => 'numeric|between:0,150'
+    ];
+    $this->validate($request, $validate_rule);
+    return view('hellos.index', ['msg' => '正しく入力されました']);
   }
 }
 
