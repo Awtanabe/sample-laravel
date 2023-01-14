@@ -18,13 +18,17 @@ class HelloController extends Controller
   //   return view('hellos.index', $data);
   // }
 
-  public function index() {
-    $data = ['msg' => ''];
+  public function index(Request $request) {
+    // $data = ['msg' => ''];
+
+    // $data = [
+    //   ['name' => 'name1', 'mail' => 'mail1'],
+    //   ['name' => 'name2', 'mail' => 'mail2'],
+    //   ['name' => 'name3', 'mail' => 'mail3'],
+    // ];
 
     // $data = array('aa' => "hoge", 'bb' => "hoge2", 'cc' => "hoge3");
-
-
-    return view('hellos.index', $data);
+    return view('hellos.index', ['data' => $request->data]);
   }
 
   public function post(Request $request) {

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController; // 追加
 use App\Http\Controllers\HelloController;
+use App\Http\Middleware\HelloMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,7 @@ Route::get('/', function () {
 
 // Route::get('hellos', 'App\Http\Controllers\HelloController@index');
 
+// Route::get('/hellos', [HelloController::class, 'index'])->middleware(HelloMiddleware::class);
 Route::get('/hellos', [HelloController::class, 'index'])->name('hellos.index');
 Route::post('/hellos', [HelloController::class, 'post']);
 
