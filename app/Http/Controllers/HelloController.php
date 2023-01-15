@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HelloController extends Controller
 {
@@ -21,6 +22,8 @@ class HelloController extends Controller
   public function index(Request $request) {
     $data = ['msg' => 'フォームを入力'];
 
+    $datas = DB::select('select * from people');
+
     // $data = [
     //   ['name' => 'name1', 'mail' => 'mail1'],
     //   ['name' => 'name2', 'mail' => 'mail2'],
@@ -28,7 +31,7 @@ class HelloController extends Controller
     // ];
 
     // $data = array('aa' => "hoge", 'bb' => "hoge2", 'cc' => "hoge3");
-    return view('hellos.index', $data);
+    return view('hellos.index', ['datas' => $datas]);
   }
 
   public function post(Request $request) {

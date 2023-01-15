@@ -8,7 +8,13 @@
 @endsection
 
 @section('content')
-  <p>{{$msg}}</p>
+
+  <ul>
+    @foreach($datas as $data)
+    <li>{{$data -> name }}: {{$data -> mail}} : {{$data -> age}}</li>
+
+    @endforeach
+  </ul>
   @if(count($errors) > 0)
   <div>
     <ul>
@@ -26,7 +32,7 @@
       <tr><th>age:</th><td><input type="text" name="age"></td></tr>
       <tr><th>age:</th><td><input type="submit" value="send"></td></tr>
     </table>
-  </form>
+  </form> -->
 @endsection
 
 
