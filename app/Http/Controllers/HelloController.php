@@ -74,6 +74,21 @@ class HelloController extends Controller
     return redirect('/hellos');
   }
 
+  public function del(Request $request) {
+    $param = ['id' => $request-> id];
+    $item = DB::select('select * from people where id = :id', $param);
+
+    return view('hellos.del', ['form' => $item[0]]);
+  }
+
+  public function remove(Request $request) {
+    $param = ['id' => $request-> id];
+
+    DB::delete('delete from people where id =:id', $param);
+
+    return redirect('/hellos');
+  }
+
   public function post(Request $request) {
 
     $validate_rule = [

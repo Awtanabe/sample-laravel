@@ -38,6 +38,8 @@ Route::get('/hellos/add', [HelloController::class, 'add']);
 Route::post('/hellos/add', [HelloController::class, 'create']);
 Route::get('/hellos/edit', [HelloController::class, 'edit']);
 Route::post('/hellos/edit', [HelloController::class, 'update']);
+Route::get('/hellos/del', [HelloController::class, 'del']);
+Route::post('/hellos/remove', [HelloController::class, 'remove']);
 
 // Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
