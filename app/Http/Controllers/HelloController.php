@@ -22,7 +22,15 @@ class HelloController extends Controller
   public function index(Request $request) {
     $data = ['msg' => 'フォームを入力'];
 
-    $datas = DB::select('select * from people');
+
+    if (isset($request -> id))
+    {
+      $param = ['id' => $request -> id];
+      // /hellos?id=2 で検索可能
+      $datas = DB::select('select * from people where id = :id', $param);
+    } else {
+      $datas = DB::select('select * from people');
+    }
 
     // $data = [
     //   ['name' => 'name1', 'mail' => 'mail1'],
