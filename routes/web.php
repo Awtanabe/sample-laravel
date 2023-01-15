@@ -36,6 +36,8 @@ Route::get('/', function () {
 Route::get('/hellos', [HelloController::class, 'index'])->name('hellos.index');
 Route::get('/hellos/add', [HelloController::class, 'add']);
 Route::post('/hellos/add', [HelloController::class, 'create']);
+Route::get('/hellos/edit', [HelloController::class, 'edit']);
+Route::post('/hellos/edit', [HelloController::class, 'update']);
 
 // Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');

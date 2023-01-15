@@ -42,6 +42,23 @@ class HelloController extends Controller
     return view('hellos.index', ['datas' => $datas]);
   }
 
+  public function edit(Request $request) {
+    $param = ['id' => $request-> id];
+    $item = DB::select('select * from people where id = :id', $param);
+    return view('hellos.edit', ['form' => $item[0]]);
+  }
+
+  public function update(Request $request) {
+    $param = [
+      'id' => $request-> id,
+      'name' => $request -> name,
+      'mail' => $request -> mail,
+      'age' => $request -> age
+    ];
+    $item = DB::update('update people set name = :name, mail = :mail, age = :age where id = :id', $param);
+    return redirect('/hellos');
+  }
+
   public function add() {
     return view('hellos.add');
   }
