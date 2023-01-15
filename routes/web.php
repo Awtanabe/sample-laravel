@@ -34,7 +34,8 @@ Route::get('/', function () {
 
 // Route::get('/hellos', [HelloController::class, 'index'])->middleware(HelloMiddleware::class);
 Route::get('/hellos', [HelloController::class, 'index'])->name('hellos.index');
-Route::post('/hellos', [HelloController::class, 'post']);
+Route::get('/hellos/add', [HelloController::class, 'add']);
+Route::post('/hellos/add', [HelloController::class, 'create']);
 
 // Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');

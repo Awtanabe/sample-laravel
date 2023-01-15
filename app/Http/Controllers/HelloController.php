@@ -42,6 +42,21 @@ class HelloController extends Controller
     return view('hellos.index', ['datas' => $datas]);
   }
 
+  public function add() {
+    return view('hellos.add');
+  }
+
+  public function create(Request $request) {
+    $param = [
+      'name' => $request -> name,
+      'mail' => $request -> mail,
+      'age' => $request -> age,
+    ];
+
+    DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
+    return redirect('/hellos');
+  }
+
   public function post(Request $request) {
 
     $validate_rule = [
