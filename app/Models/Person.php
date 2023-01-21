@@ -9,6 +9,11 @@ class Person extends Model
 {
     use HasFactory;
 
+    public function scopeNameEqueal($query, $str)
+    {
+        return $query->where('name', $str);
+    }
+
     public function getData()
     {
         return $this->id.': ' . $this->name . '(' . $this->age . ')';
