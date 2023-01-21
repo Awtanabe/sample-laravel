@@ -22,6 +22,7 @@ class PersonController extends Controller
     {
         # スコープメソッドの利用
         $item = Person::nameEqueal($request->input)->first();
+        // $item = Person::ageGreaterThan(20)->agelessThan(10)->first();
         $param = ['input' => $request->input, 'item' => $item];
         return view('person.find', $param);
     }
