@@ -9,6 +9,15 @@ class Person extends Model
 {
     use HasFactory;
 
+    protected $guarded = array('id');
+
+    // バリデーション
+    public static $rules = array(
+        'name' => 'required',
+        'mai' => 'email',
+        'age' => 'integer|min:0|max:150',
+    );
+
     public function scopeNameEqueal($query, $str)
     {
         return $query->where('name', $str);
@@ -26,6 +35,6 @@ class Person extends Model
 
     public function getData()
     {
-        return $this->id.': ' . $this->name . '(' . $this->age . ')';
+        return $this->id.': ' . $this->mail . '(' . $this->age . ')';
     }
 }

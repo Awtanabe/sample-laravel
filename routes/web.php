@@ -49,6 +49,7 @@ Route::get('/articles/create', [ArticleController::class, 'create'])->name('arti
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
 
 Route::get('person', [PersonController::class, 'index']);
-
+Route::get('person/add', [PersonController::class, 'add']);
+Route::post('person/add', [PersonController::class, 'create']);
 Route::get('person/find', [PersonController::class, 'find']);
 Route::post('person/find', [PersonController::class, 'search']);
