@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController; // 追加
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\PersonController;
 use App\Http\Middleware\HelloMiddleware;
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,5 @@ Route::get('/articles', [ArticleController::class, 'index'])->name('articles.ind
 
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+
+Route::get('person', [PersonController::class, 'index']);
