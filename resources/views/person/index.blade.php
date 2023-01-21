@@ -15,7 +15,7 @@
     <tr><th>Data</th></tr>
     @foreach ($items as $item)
       <tr>
-        <td>{{$item->getData()}}</td>
+        <td><a href="person/edit?id={{$item->id}}">{{$item->getData()}}</a></td>
       </tr>
     @endforeach
   </table>
