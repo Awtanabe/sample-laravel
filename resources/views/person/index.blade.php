@@ -10,6 +10,7 @@
 
 
 @section('content')
+
   <a href="person/find">検索する</a>
   <table>
     <tr><th>Data</th></tr>
