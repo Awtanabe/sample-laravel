@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Person;
-use App\MyClasses\MyService;
 
 class PersonController extends Controller
 {
-    public function index(Request $request, MyService $myservice)
+    public function index(Request $request)
     {
-
-        dd($myservice->getId());
-
         $items = Person::all();
         return view('person.index', ['items' => $items]);
     }

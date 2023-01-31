@@ -3,7 +3,7 @@
 
 namespace App\MyClasses;
 
-class MyService
+class MyService implements MyServiceInterface
 {
 
     private $serial;
@@ -22,7 +22,7 @@ class MyService
         return $this->msg;
     }
 
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
 
@@ -38,7 +38,7 @@ class MyService
         return $this->id;
     }
 
-    public function data()
+    public function data(int $id)
     {
         return $this->data;
     }

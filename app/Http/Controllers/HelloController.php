@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\MyClasses\MyServiceInterface;
+
 
 class HelloController extends Controller
 {
@@ -19,18 +21,25 @@ class HelloController extends Controller
   //   return view('hellos.index', $data);
   // }
 
-  public function index(Request $request) {
+  // function __construct(MyService $myservice)
+  // {
+  //     $myservice = app('App\MyClasses\MyService');
+  // }
+
+  public function index(Request $request, MyServiceInterface $myservice, int $id = -1) {
     $data = ['msg' => 'フォームを入力'];
 
+    $myservice -> setId($id);
 
-    if (isset($request -> id))
-    {
-      $param = ['id' => $request -> id];
-      // /hellos?id=2 で検索可能
-      $datas = DB::select('select * from people where id = :id', $param);
-    } else {
-      $datas = DB::select('select * from people');
-    }
+
+    // if (isset($request -> id))
+    // {
+    //   $param = ['id' => $request -> id];
+    //   // /hellos?id=2 で検索可能
+    //   $datas = DB::select('select * from people where id = :id', $param);
+    // } else {
+    //   $datas = DB::select('select * from people');
+    // }
 
     // $data = [
     //   ['name' => 'name1', 'mail' => 'mail1'],
@@ -39,7 +48,12 @@ class HelloController extends Controller
     // ];
 
     // $data = array('aa' => "hoge", 'bb' => "hoge2", 'cc' => "hoge3");
-    return view('hellos.index', ['datas' => $datas]);
+
+    $data = [
+      'msg' => $myservice->say(),
+      'data' => $myservice->alldata()
+    ];
+    return view('hellos.index', ['datas' => $data['data']]);
   }
 
   public function edit(Request $request) {
