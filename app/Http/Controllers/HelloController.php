@@ -21,15 +21,14 @@ class HelloController extends Controller
   //   return view('hellos.index', $data);
   // }
 
-  // function __construct(MyService $myservice)
-  // {
-  //     $myservice = app('App\MyClasses\MyService');
-  // }
 
-  public function index(Request $request, MyServiceInterface $myservice, int $id = -1) {
+
+  public function index(Request $request, MyServiceInterface $myservice) {
+    dd($myservice);
     $data = ['msg' => 'フォームを入力'];
 
-    $myservice -> setId($id);
+
+
 
 
     // if (isset($request -> id))
@@ -47,13 +46,13 @@ class HelloController extends Controller
     //   ['name' => 'name3', 'mail' => 'mail3'],
     // ];
 
-    // $data = array('aa' => "hoge", 'bb' => "hoge2", 'cc' => "hoge3");
+    $data = array('aa' => "hoge", 'bb' => "hoge2", 'cc' => "hoge3");
 
-    $data = [
-      'msg' => $myservice->say(),
-      'data' => $myservice->alldata()
-    ];
-    return view('hellos.index', ['datas' => $data['data']]);
+    // $data = [
+    //   'msg' => $myservice->say(),
+    //   'data' => $myservice->alldata()
+    // ];
+    return view('hellos.index', ['datas' => $data]);
   }
 
   public function edit(Request $request) {

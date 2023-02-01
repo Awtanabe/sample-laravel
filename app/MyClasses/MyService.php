@@ -14,7 +14,7 @@ class MyService implements MyServiceInterface
     public function __construct(int $id = -1)
     {
         $this->serial = rand();
-        echo "「".$this->serial. "」";
+        // echo "「".$this->serial. "」";
     }
 
     public function say()

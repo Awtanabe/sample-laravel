@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelloServiceProvider::class,
+        App\Providers\MyServiceProvider::class,
+        App\Providers\ClockServiceProvider::class,
 
         App\Providers\PersonServiceProvider::class
     ],
@@ -231,6 +233,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'myservice' => App\Facades\MyService::class
 
     ],
 

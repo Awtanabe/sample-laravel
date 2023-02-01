@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\MyClasses\PowerMyService;
+use App\MyClasses\MyService;
 use App\MyClasses\MyServiceInterface;
+use App\Services\Riak\Connection;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,14 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
-        // app()->bind('App\MyClasses\MyService',
-        // function ($app) {
-        //     $myservice = new MyService();
-        //     $myservice->setId(0);
-        //     return $myservice;
-        // });
-
-        //
+      app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
     }
 }
