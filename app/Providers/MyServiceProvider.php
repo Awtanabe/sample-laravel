@@ -2,30 +2,27 @@
 
 namespace App\Providers;
 
-use App\MyClasses\MyServiceInterface;
-use App\MyClasses\PowerMyService;
-
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class MyServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
-     *
+     * @return void
      */
     // 登録処理
     public function register()
-    {
-
-        app()->singletom('myservice','App\MyClasses\PowerMyService');
-        app()->singletom('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
+    {      
+        app()->singleton('myservice', 'App\MyClasses\PowerMyService');
+        app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
         echo "<b><MyServiceProvider/register></b><br/>";
         //
     }
 
     /**
      * Bootstrap services.
-     *
+     *@return void
      */
     // 登録したものの初期化
     public function boot()

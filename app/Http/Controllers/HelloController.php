@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\MyClasses\MyServiceInterface;
 
 
+
 class HelloController extends Controller
 {
   // パラメーターをただ表示したい場合
@@ -23,8 +24,7 @@ class HelloController extends Controller
 
 
 
-  public function index(Request $request, MyServiceInterface $myservice) {
-    dd($myservice);
+  public function index(MyServiceInterface $myservice, int $id = -1) {
     $data = ['msg' => 'フォームを入力'];
 
 

@@ -161,7 +161,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -174,11 +173,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\HelloServiceProvider::class,
         App\Providers\MyServiceProvider::class,
         App\Providers\ClockServiceProvider::class,
-
-        App\Providers\PersonServiceProvider::class
+        App\Providers\PersonServiceProvider::class,
+        App\Providers\YahooServiceProvider::class
     ],
 
     /*
