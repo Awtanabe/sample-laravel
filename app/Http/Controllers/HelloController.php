@@ -27,6 +27,7 @@ class HelloController extends Controller
   public function index(MyServiceInterface $myservice, int $id = -1) {
     $data = ['msg' => 'フォームを入力'];
 
+    $today = \Chronos::today();
 
 
 
@@ -52,7 +53,7 @@ class HelloController extends Controller
     //   'msg' => $myservice->say(),
     //   'data' => $myservice->alldata()
     // ];
-    return view('hellos.index', ['datas' => $data]);
+    return view('hellos.index', ['datas' => $data, 'today' => $today]);
   }
 
   public function edit(Request $request) {

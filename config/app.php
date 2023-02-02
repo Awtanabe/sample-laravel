@@ -231,7 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'myservice' => App\Facades\MyService::class
+        'myservice' => App\Facades\MyService::class,
+        'Chronos' => App\Facades\Chronos::class,
 
     ],
 

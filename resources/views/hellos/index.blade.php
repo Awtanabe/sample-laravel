@@ -10,6 +10,7 @@
 @section('content')
 
 
+ {{$today}}
   <ul>
     @foreach ($datas as $data)
       <li>{{$data}}</li>

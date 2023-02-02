@@ -34,7 +34,7 @@ Route::get('/', function () {
 // Route::get('hellos', 'App\Http\Controllers\HelloController@index');
 
 // Route::get('/hellos', [HelloController::class, 'index'])->middleware(HelloMiddleware::class);
-Route::get('/hellos', [HelloController::class, 'index'])->name('hellos.index');
+Route::get('/hellos', [HelloController::class, 'index'])->name('hellos.index')->middleware(\App\Http\Middleware\TestMiddleware::class);
 Route::get('/hellos/add', [HelloController::class, 'add']);
 Route::post('/hellos/add', [HelloController::class, 'create']);
 Route::get('/hellos/edit', [HelloController::class, 'edit']);
